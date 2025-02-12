@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
-import { Movie } from '../../../shared/models/movie.model';
-import { MovieService } from '../../../core/services/movie.service';
+import { Movie } from '../../../../shared/models/movie.model';
+import { MovieService } from '../../../../core/services/movie.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
