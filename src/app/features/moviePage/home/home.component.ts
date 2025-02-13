@@ -1,7 +1,7 @@
-import { Component, signal } from '@angular/core';
-import { Movie } from '../../../../shared/models/movie.model';
-import { MovieService } from '../../../../core/services/movie.service';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MovieService } from '../../../core/services/movie.service';
+import { Movie } from '../../../shared/models/movie.model';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   host: { class: 'app-home' },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
   

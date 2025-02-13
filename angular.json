@@ -30,9 +30,14 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/cdbootstrap/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/cdbootstrap/js/bootstrap.min.js",
+              "node_modules/cdbootstrap/js/popper.min.js"
+            ],
             "stylePreprocessorOptions": {
               "includePaths": [
                 "src/assets/styles",

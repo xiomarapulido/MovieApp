@@ -1,0 +1,38 @@
+@import '@app/colors';
+@import '@app/mixins';
+/*
+.app-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 250px;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+
+  @include breakpoint('medium') {
+    transform: translateX(0);
+  }
+
+  &--open {
+    transform: translateX(0);
+  }
+}
+*/
+.sidebar {
+  height: 100vh;
+  width: 250px; /* Tamaño normal */
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 80px; /* Tamaño colapsado */
+}
+
+.sidebar.collapsed .nav-link span {
+  display: none; /* Oculta el texto */
+}
+
+.sidebar .nav-link i {
+  font-size: 1.2rem;
+}

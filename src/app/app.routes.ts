@@ -1,6 +1,19 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './features/moviePage/homePage/home/home.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent }
+  {
+    path: '',
+    loadComponent: () => import('./features/moviePage/layout/layout.component').then(m => m.LayoutComponent),
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./features/moviePage/home/home.component').then(m => m.HomeComponent)
+      },
+      {
+        path: 'movies',
+        loadComponent: () => import('./features/moviePage/movies-list/movies-list.component').then(m => m.MoviesListComponent)
+      }
+    ]
+  },
+  { path: '**', redirectTo: '' }
 ];
