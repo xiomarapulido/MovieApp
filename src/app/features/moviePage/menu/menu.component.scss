@@ -1,38 +1,32 @@
 @import '@app/colors';
 @import '@app/mixins';
-/*
+
 .app-sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
   height: 100vh;
-  width: 250px;
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(-100%);
-
-  @include breakpoint('medium') {
-    transform: translateX(0);
-  }
-
-  &--open {
-    transform: translateX(0);
-  }
-}
-*/
-.sidebar {
-  height: 100vh;
-  width: 250px; /* Tamaño normal */
+  width: 9.688rem; 
   transition: width 0.3s ease;
-}
 
-.sidebar.collapsed {
-  width: 80px; /* Tamaño colapsado */
-}
+  &.collapsed {
+    width: 5rem; 
+  }
 
-.sidebar.collapsed .nav-link span {
-  display: none; /* Oculta el texto */
-}
+  &.collapsed .nav-link span {
+    display: none; 
+  }
 
-.sidebar .nav-link i {
-  font-size: 1.2rem;
+  .nav-link i {
+    font-size: 1.625rem;
+  }
+  a {
+    color: $white;
+    text-decoration: none;
+    &:hover {
+      color: $red; 
+    }
+  }
+
+  .active-link {
+    color: $red; 
+    font-weight: bold;
+  }
 }
