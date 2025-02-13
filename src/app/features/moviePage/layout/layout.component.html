@@ -1,1 +1,11 @@
-<p>layout works!</p>
+<div class="app-layout container-fluid vh-100">
+    <div class="row h-100">
+      <div class="col-auto p-0">
+        <app-menu></app-menu>
+      </div>
+      <main class="col p-4 d-flex flex-column vh-100 overflow-auto">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+  
