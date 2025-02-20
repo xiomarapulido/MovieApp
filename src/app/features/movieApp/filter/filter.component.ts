@@ -7,22 +7,40 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, signal
   imports: [CommonModule],
   templateUrl: './filter.component.html',
   styleUrl: './filter.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'app-filter' },
 })
 export class FilterComponent {
 
-  @Input() availableOptions: string[] = [];  // Input for available options
-  @Input() selectedOptionData: string[] = [];   // Input for selected optinons
-  @Output() dataChange = new EventEmitter<string[]>();  // Event emitter to send the selected option back to the parent
+ 
+  @Input() availableOptions: string[] = [];  
+  @Input() selectedOptionData: string[] = []; 
+  @Output() dataChange = new EventEmitter<string[]>();  
 
   /**
-   * Handles selection and emits the selected option to the parent.
-   * @param event The select event triggered when option are selected.
+   * Toggles the selection of an option.
+   * If the option is already selected, it is removed; otherwise, it is added.
+   * @param option The selected genre option.
    */
-  onChangeData(event: Event): void {
-    const selectedOptions = (event.target as HTMLSelectElement).selectedOptions;
-    const selectedData = Array.from(selectedOptions).map(option => option.value);
-    this.dataChange.emit(selectedData);  // Emit the selected data to the parent component
+  toggleSelection(option: string): void {
+    const selectedSet = new Set(this.selectedOptionData);
+
+    if (selectedSet.has(option)) {
+      selectedSet.delete(option); // Deselect if already selected
+    } else {
+      selectedSet.add(option); // Select if not selected
+    }
+
+    this.selectedOptionData = Array.from(selectedSet);
+    this.dataChange.emit(this.selectedOptionData); // Emit updated selection
+  }
+
+  /**
+   * Clears all selected genres and emits an empty list to the parent.
+   */
+  clearSelection(): void {
+    this.selectedOptionData = [];
+    this.dataChange.emit(this.selectedOptionData); // Emit empty selection
   }
 }
 

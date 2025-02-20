@@ -1,6 +1,14 @@
-<select multiple (change)="onChangeData($event)">
-    <option *ngFor="let genre of availableOptions" [value]="genre" [selected]="selectedOptionData.includes(genre)">
+<div class="app-filter">
+  <!-- Dropdown personalizado -->
+  <select multiple>
+    <option 
+      *ngFor="let genre of availableOptions" 
+      [class.selected]="selectedOptionData.includes(genre)"
+      (click)="toggleSelection(genre)">
       {{ genre }}
     </option>
   </select>
-  
+
+  <!-- Botón para limpiar selección -->
+  <button (click)="clearSelection()">Clear Selection</button>
+</div>
