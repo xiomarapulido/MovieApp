@@ -1,1 +1,9 @@
-<input type="text" placeholder="Search by title" (input)="onSearch($event)" [value]="searchTerm" />
+<div class="app-searcher">
+    <input 
+      type="text" 
+      class="form-control bg-dark text-white border-secondary stylish-input" 
+      placeholder="Search by title..." 
+      (input)="onSearch($event)" 
+      [value]="searchTerm"
+    />
+  </div>

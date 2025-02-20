@@ -7,7 +7,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, signal
   imports: [CommonModule],
   templateUrl: './searcher.component.html',
   styleUrl: './searcher.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'app-searcher' },
 })
 export class SearcherComponent {
 

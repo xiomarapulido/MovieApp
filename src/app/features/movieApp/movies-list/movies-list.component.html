@@ -1,12 +1,20 @@
 <div class="app-movies-list col-12">
 
-  <app-searcher [searchTerm]="searchTerm()" (searchChange)="onSearch($event)"></app-searcher>
+  <div class="row">
+    <div class="col-12 col-xs-12 col-sm-12 col-md-2 col-lg-2 offset-md-1 offset-lg-1">
+      <app-searcher [searchTerm]="searchTerm()" (searchChange)="onSearch($event)"></app-searcher>
+    </div>
+  
+    <div class="col-12 col-xs-12 col-sm-12 col-md-2 col-lg-2 offset-md-1 offset-lg-1">
+      <app-filter [availableOptions]="availableGenres()" [selectedOptionData]="selectedGenres()"
+      (dataChange)="onGenreChange($event)">
+    </app-filter>
+    </div>
+    
+  </div>
+ 
 
-  <app-filter [availableOptions]="availableGenres()" [selectedOptionData]="selectedGenres()"
-    (dataChange)="onGenreChange($event)">
-  </app-filter>
-
-  <div class="app-movies-list col-12">
+  <div class="col-12">
     <div class="row">
       <div class="col-10 offset-1">
         <div class="row">
