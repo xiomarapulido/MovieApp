@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Movie } from '../../shared/models/movie.model';
+import { Movie } from '../../../shared/models/movie.model';
 import { CommonModule } from '@angular/common';
 
 @Component({

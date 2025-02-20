@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovieService } from '../../../core/services/movie.service';
 import { Movie } from '../../../shared/models/movie.model';
-import { CardMovieComponent } from '../../card-movie/card-movie.component';
+import { CardMovieComponent } from '../card-movie/card-movie.component';
 
 @Component({
   selector: 'app-home',

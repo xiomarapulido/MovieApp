@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, signal, WritableSignal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CardMovieComponent } from '../../card-movie/card-movie.component';
+import { CardMovieComponent } from '../card-movie/card-movie.component';
 import { MovieService } from '../../../core/services/movie.service';
 import { Movie } from '../../../shared/models/movie.model';
 import { Router } from '@angular/router';
-import { debounceTime, of, switchMap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, of, Subject, switchMap } from 'rxjs';
 import { PaginatorComponent } from '../paginator/paginator.component';
 import { SearcherComponent } from '../searcher/searcher.component';
 import { FilterComponent } from '../filter/filter.component';
@@ -13,8 +13,8 @@ import { FilterComponent } from '../filter/filter.component';
   selector: 'app-movies-list',
   standalone: true,
   imports: [
-    CommonModule, 
-    CardMovieComponent, 
+    CommonModule,
+    CardMovieComponent,
     PaginatorComponent,
     SearcherComponent,
     FilterComponent],
@@ -25,16 +25,18 @@ import { FilterComponent } from '../filter/filter.component';
 })
 export class MoviesListComponent {
 
-  movieData = signal<Movie[]>([]); // Signal to store all movies
-  currentPage = signal(1);         // Signal to store current page
-  moviesPerPage = 12;              // Number of movies per page
-  totalMovies = signal(0);         // Signal to store the total number of movies
-  searchTerm: WritableSignal<string> = signal('');       // Signal to store the search term
-  availableGenres = signal<string[]>([]); // Signal to store available genres
-  selectedGenres = signal<string[]>([]);  // Signal to store selected genres
+  movieData = signal<Movie[]>([]);
+  currentPage = signal(1);
+  moviesPerPage = 12;
+  totalMovies = signal(0);
+  searchTerm: WritableSignal<string> = signal('');
+  availableGenres = signal<string[]>([]);
+  selectedGenres = signal<string[]>([]);
+  private searchSubject = new Subject<string>();
 
   constructor(private movieService: MovieService, private router: Router) {
     this.loadMovies(); // Fetch movies when the component initializes
+    this.initializeSearchDebounce();
   }
 
   /**
@@ -108,9 +110,20 @@ export class MoviesListComponent {
    * Handles user input in the search field with debounce effect.
    * @param searchTerm The search term entered by the user
    */
+
   onSearch(searchTerm: string): void {
-    this.searchTerm.set(searchTerm);  // Update the search term signal
-    this.currentPage.set(1);  // Reset to the first page when the search term changes
+    this.searchSubject.next(searchTerm);
+  }
+
+
+  initializeSearchDebounce() {
+    this.searchSubject.pipe(
+      debounceTime(500), // Waits 500ms after the last keystroke before emitting the value
+      distinctUntilChanged() // Emits only if the value has changed
+    ).subscribe(searchTerm => {
+      this.searchTerm.set(searchTerm); // Updates the search term after 500ms of inactivity
+      this.currentPage.set(1); // Resets to the first page when the search term changes
+    });
   }
 
   /**
