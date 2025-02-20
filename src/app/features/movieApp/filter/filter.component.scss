@@ -1,20 +1,53 @@
+@import '@app/colors';
 .app-filter {
+    
     display: flex;
     flex-direction: column;
     gap: 10px;
-  
-    select {
-      width: 200px;
-      height: auto;
-    }
-  
-    option {
-      cursor: pointer;
-    }
-  
-    .selected {
-      background-color: #f0ad4e; /* Color de fondo para opciones seleccionadas */
-      color: white;
-    }
+    width: 220px;
+ 
+  .custom-multi-select {
+    position: relative;
+    width: 100%;
   }
   
+  select.form-select {
+    background-color: $black;
+    color: $white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    border: 1px solid $gray;
+  }
+  
+  option {
+    background-color: $gray;
+    color: $white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  
+  option:hover {
+    background-color: $light;
+    color: $white;
+  }
+  
+  option.selected {
+    background-color: $red;
+    color: $white;
+  }
+  
+  .btn-danger {
+    background-color: $red;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-danger:hover {
+    background-color: $red;
+  }
+}

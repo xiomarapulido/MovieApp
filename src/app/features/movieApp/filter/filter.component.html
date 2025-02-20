@@ -1,14 +1,15 @@
 <div class="app-filter">
-  <!-- Dropdown personalizado -->
-  <select multiple>
-    <option 
-      *ngFor="let genre of availableOptions" 
-      [class.selected]="selectedOptionData.includes(genre)"
-      (click)="toggleSelection(genre)">
-      {{ genre }}
-    </option>
-  </select>
+  <label class="form-label text-light">Filter Options</label>
+  <div class="custom-multi-select">
+    <select class="form-select" multiple>
+      <option 
+        *ngFor="let genre of availableOptions" 
+        [class.selected]="selectedOptionData.includes(genre)"
+        (click)="toggleSelection(genre)">
+        {{ genre }}
+      </option>
+    </select>
+  </div>
 
-  <!-- Botón para limpiar selección -->
-  <button (click)="clearSelection()">Clear Selection</button>
+  <button class="btn btn-danger mt-2" (click)="clearSelection()">Clear Selection</button>
 </div>
