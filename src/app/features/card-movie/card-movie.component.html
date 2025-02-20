@@ -1,5 +1,6 @@
-<div class="app-card card mb-5">
-  <img [src]="movie.image.url" class="card-img-top app-card__img" alt="movie.title">
+<div id="{{ movie.id }}" class="app-card card mb-5" [ngClass]="dynamicClass">
+  <img [src]="movie.image.url" class="card-img-top app-card__img" alt="{{ movie.title }}"
+    (error)="onImageError($event)">
   <div class="card-body">
     <h5 class="card-title app-card__title">{{ movie.title }}</h5>
     <p class="card-text">Popularity: {{ movie.popularity }}</p>

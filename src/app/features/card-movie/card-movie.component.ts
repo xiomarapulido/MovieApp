@@ -13,4 +13,10 @@ import { CommonModule } from '@angular/common';
 })
 export class CardMovieComponent {
   @Input() movie: Movie= {} as Movie;
+  @Input() dynamicClass: string = '';
+
+
+  onImageError(event: Event) {
+    (event.target as HTMLImageElement).src = 'assets/images/error-movie.jpg';
+  }
 }
