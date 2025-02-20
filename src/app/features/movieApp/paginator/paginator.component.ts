@@ -6,7 +6,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   imports: [],
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'app-paginator' },
 })
 export class PaginatorComponent {
   
