@@ -1,1 +1,6 @@
-<p>filter works!</p>
+<select multiple (change)="onChangeData($event)">
+    <option *ngFor="let genre of availableOptions" [value]="genre" [selected]="selectedOptionData.includes(genre)">
+      {{ genre }}
+    </option>
+  </select>
+  
