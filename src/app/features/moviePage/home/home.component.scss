@@ -3,15 +3,17 @@
 
 .app-home {
 	&__title {
-		text-align: center;
+    font-size: 2.813rem;
+    font-weight: 500;
+    color: $white;
 	}
 
-	&__json-data-container {
-		background-color: $black;
-		color: $white;
+    .custom-col {
+        @media (min-width: 768px) {
+          flex: 0 0 19.2%; 
+        }
+      }
+      
 
-		@include breakpoint('xsmall') {
-			color: $neon-green;
-		}
-	}
+
 }

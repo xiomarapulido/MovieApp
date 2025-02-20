@@ -1,7 +1,7 @@
 export interface Movie {
     id: string;
     title: string;
-    popularity: number;
+    popularity: string;
     image: MovieImage;
     slug: string;
     runtime: string;
@@ -9,6 +9,7 @@ export interface Movie {
     genres: string[];
     budget: number;
   }
+  
   
   export interface MovieImage {
     url: string;

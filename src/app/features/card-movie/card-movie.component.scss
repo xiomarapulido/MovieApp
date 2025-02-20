@@ -1,0 +1,14 @@
+.app-card {
+
+    &__title {
+        white-space: nowrap;
+        width: 7.188rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__img {
+        min-height: 13.438rem;
+        max-height: 31.25rem;
+    }
+}

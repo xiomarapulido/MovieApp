@@ -1,21 +1,26 @@
+import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Movie } from '../../shared/models/movie.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MovieService {
 
   private readonly dataURL = 'assets/mock/movie.mock-data.json';
 
-	constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-	getAll$(): Observable<Movie[]> {
-		return this.http.get<Movie[]>(this.dataURL);
-	}
-
+  getTop10Popular$(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.dataURL).pipe(
+      map((movies: Movie[]) => {
+        return movies
+          .filter((movie) => !isNaN(parseFloat(movie.popularity))) 
+          .sort((a, b) => parseFloat(b.popularity) - parseFloat(a.popularity)) 
+          .slice(0, 10); 
+      })
+    );
+  }
+  
 }
-
-
