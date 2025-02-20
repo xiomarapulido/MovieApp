@@ -1,14 +1,28 @@
+<!-- Search input -->
+<input type="text" placeholder="Search by title" (input)="onSearch($event)" [value]="searchTerm()" />
+<!-- Genre filter dropdown -->
+<select multiple (change)="onGenreSelect($event)">
+  <option *ngFor="let genre of availableGenres()" [value]="genre" [selected]="selectedGenres().includes(genre)">
+    {{ genre }}
+  </option>
+</select>
+
 <div class="app-movies-list col-12">
-    <h1 class="app-movies-list__title text-center mb-5">Movie List</h1>
-  
-    <div class="row">
-      <div class="col-10 offset-1">
-        <div class="row">
-          <div class="col-12 col-xs-12 col-sm-12 col-md-2 col-lg-2" *ngFor="let m of movieData()">
-            <app-card-movie [movie]="m"></app-card-movie>
-          </div>
+  <h1 class="app-movies-list__title text-center mb-5">Movie List</h1>
+
+  <div class="row">
+    <div class="col-10 offset-1">
+      <div class="row">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-2 col-lg-2" *ngFor="let m of paginatedMovies">
+          <app-card-movie [movie]="m"></app-card-movie>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
+<!-- Pagination controls -->
+<div class="pagination">
+  <button (click)="prevPage()" [disabled]="currentPage() <= 1">Previous</button>
+  <span>{{ currentPage() }} of {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage() >= totalPages">Next</button>
+</div>
