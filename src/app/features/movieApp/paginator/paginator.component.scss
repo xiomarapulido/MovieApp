@@ -1,30 +1,34 @@
 @import '@app/colors';
 
 .app-paginator {
-
-    .btn {
-        font-size: 1.2rem;
-        padding: 12px 24px;
-        border-radius: 30px; 
-        transition: all 0.3s ease;
-        font-weight: 600;
-
-        &:hover {
-            background-color: $primary;
-            border-color: $primary;
-        }
-
-        &:disabled {
-            background-color: $light;
-            border-color: $light;
-            cursor: not-allowed;
-        }
-    }
-
-    .page-info {
-        font-size: 1.4rem;
-        font-weight: 700;
+    .btn-paginator {
+      font-size: 1rem;
+      padding: 8px 16px;
+      border-radius: 50px;
+      background-color: transparent;
+      border: 1px solid $gray;
+      color: $white;
+      transition: all 0.3s ease;
+      font-weight: 500;
+  
+      &:hover {
+        background-color: $red;
+        border-color: $red;
         color: $white;
+      }
+  
+      &:disabled {
+        background-color: black;
+        border-color: black;
+        cursor: not-allowed;
+        color: $light;
+      }
     }
-
-}
+  
+    .page-info {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: $white;
+    }
+  }
+  
