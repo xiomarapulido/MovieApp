@@ -33,8 +33,7 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "node_modules/cdbootstrap/css/bootstrap.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
-              "src/styles.scss",
-              "node_modules/swiper/swiper-bundle.min.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/cdbootstrap/js/bootstrap.min.js",

@@ -1,0 +1,19 @@
+<div class="app-filter mb-3">
+  <div class="custom-multi-select bg-dark">
+    <!-- Encabezado con título y botón dentro de la caja -->
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <label class="form-label text-light mb-0">Filter by genre</label>
+      <button class="btn btn-danger" (click)="clearSelection()">X</button>
+    </div>
+    
+    <!-- Selector con múltiples opciones -->
+    <select class="form-select bg-dark" multiple>
+      <option 
+        *ngFor="let genre of availableOptions" 
+        [class.selected]="selectedOptionData.includes(genre)"
+        (click)="toggleSelection(genre)">
+        {{ genre }}
+      </option>
+    </select>
+  </div>
+</div>

@@ -2,23 +2,25 @@
   <button class="btn btn-outline-light mb-3 align-self-start" (click)="toggleMenu()">
     <i class="bi" [class.bi-chevron-left]="!isCollapsed()" [class.bi-chevron-right]="isCollapsed()"></i>
   </button>
+  
   <ul class="nav flex-column">
     <li class="nav-item">
       <a 
-        class="nav-link  d-flex align-items-center" 
-        routerLink="/" 
+        class="nav-link d-flex align-items-center" 
+        routerLink="/home" 
         routerLinkActive="active-link" 
         [routerLinkActiveOptions]="{ exact: true }">
         <i class="bi bi-house-door me-2"></i>
         <span *ngIf="!isCollapsed()">Home</span>
       </a>
     </li>
+
     <li class="nav-item">
       <a 
-        class="nav-link  d-flex align-items-center" 
+        class="nav-link d-flex align-items-center" 
         routerLink="/movies" 
         routerLinkActive="active-link" 
-        [routerLinkActiveOptions]="{ exact: true }">
+        [routerLinkActiveOptions]="{ exact: false }"> 
         <i class="bi bi-film me-2"></i>
         <span *ngIf="!isCollapsed()">Movies</span>
       </a>

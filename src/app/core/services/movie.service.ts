@@ -22,5 +22,9 @@ export class MovieService {
       })
     );
   }
+
+  getAll$(): Observable<Movie[]> {
+		return this.http.get<Movie[]>(this.dataURL);
+	}
   
 }

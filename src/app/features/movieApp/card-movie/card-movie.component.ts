@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Movie } from '../../shared/models/movie.model';
+import { Movie } from '../../../shared/models/movie.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -13,4 +13,8 @@ import { CommonModule } from '@angular/common';
 })
 export class CardMovieComponent {
   @Input() movie: Movie= {} as Movie;
+
+  onImageError(event: Event) {
+    (event.target as HTMLImageElement).src = 'assets/images/error-movie.jpg';
+  }
 }
