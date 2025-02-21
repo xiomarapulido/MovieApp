@@ -1,57 +1,60 @@
-// Color scheme
-$primary-color: #d32f2f; // Red
-$secondary-color: #212121; // Dark gray/black
-$accent-color: #ffffff; // White
-$light-gray: #f5f5f5; // Light gray
+@import '@app/colors';
+.app-movie-detail {
+  background-color: $light;
 
-// Global body styling
-body {
-  background-color: $light-gray;
-  font-family: 'Arial', sans-serif;
-}
-
-// Container and layout adjustments
-.container {
-  max-width: 1200px;
-  margin-top: 50px;
-}
-
-// Movie poster styling
-img {
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-// Back button styling
-button {
-  background-color: $secondary-color;
-  color: $accent-color;
-  border: 1px solid $secondary-color;
-  &:hover {
-    background-color: $primary-color;
-    color: $accent-color;
+  h1{
+    color: $red;
   }
-}
 
-// Movie title and details styling
-h1 {
-  color: $primary-color;
-  font-size: 2.5rem;
-}
+  .card {
+    background-color: $white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
 
-p {
-  font-size: 1.1rem;
-  color: $secondary-color;
-}
+  .card-img-top {
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    height: 300px;
+  }
 
-strong {
-  color: $primary-color;
-}
+  .display-4 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: -0.05rem;
+  }
 
-.col-md-4 {
-  margin-bottom: 20px;
-}
+  .btn-outline-light {
+    border: 2px solid $gray;
+    color: $white;
+    transition: background-color 0.3s, color 0.3s;
+  }
 
-.col-md-8 {
-  padding-left: 30px;
+  .btn-outline-light:hover {
+    background-color: $red;
+    color: $light;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: $black;
+  }
+
+  .alert-warning {
+    background-color: $gray;
+    color: $red;
+    font-weight: bold;
+  }
+
+  .mb-4 {
+    margin-bottom: 2rem;
+  }
+
+  .mb-3 {
+    margin-bottom: 1.5rem;
+  }
+
+  .shadow-lg {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
 }

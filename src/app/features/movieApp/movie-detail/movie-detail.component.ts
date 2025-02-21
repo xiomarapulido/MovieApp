@@ -2,19 +2,22 @@ import { ChangeDetectionStrategy, Component, Signal, signal } from '@angular/cor
 import { Movie } from '../../../shared/models/movie.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../../../core/services/movie.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Location } from '@angular/common';
+import { moviesRoute } from '../../../shared/const/generalConst';
 
 @Component({
   selector: 'app-movie-detail',
   standalone: true,
   imports: [CommonModule],
+  providers: [CurrencyPipe],
   templateUrl: './movie-detail.component.html',
   styleUrls: ['./movie-detail.component.scss'],
+  host: { class: 'app-movie-detail' },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MovieDetailComponent {
-  
+
   movie = signal<Movie | null>(null);  // Signal for movie data
   error = signal<boolean>(false);
 
@@ -22,8 +25,9 @@ export class MovieDetailComponent {
     private route: ActivatedRoute,
     private movieService: MovieService,
     private router: Router,
-    private location: Location
-  ) {}
+    private location: Location,
+    private currencyPipe: CurrencyPipe
+  ) { }
 
   ngOnInit(): void {
     const slug = this.route.snapshot.paramMap.get('slug');
@@ -50,6 +54,11 @@ export class MovieDetailComponent {
 
   // Method to handle the back button
   goBack(): void {
-    this.location.back();  // Use location service to navigate back
+    const currentUrl = this.router.url;
+    if (currentUrl.includes(`/${moviesRoute}`)) {
+      this.router.navigate([`/${moviesRoute}`]);
+    } else {
+      this.router.navigate(['/']);
+    }
   }
 }
