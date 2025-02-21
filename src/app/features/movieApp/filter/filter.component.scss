@@ -1,0 +1,57 @@
+@import '@app/colors';
+.app-filter {
+  .custom-multi-select {
+    position: relative;
+    width: 100%;
+    padding: 0.625rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+    .d-flex {
+      margin-bottom: 0.625;
+    }
+
+    label {
+      font-size: 1rem; 
+    }
+
+    button {
+      background-color: $red;
+      border: none;
+      border-radius: 50%;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: darken($red, 10%);
+    }
+
+    select.form-select {
+      color: $white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      border: 1px solid $gray;
+    }
+
+    option {
+      background-color: $gray;
+      color: $white;
+      padding: 5px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+
+    option:hover {
+      background-color: $light;
+      color: $white;
+    }
+
+    option.selected {
+      background-color: $red;
+      color: $white;
+    }
+  }
+}

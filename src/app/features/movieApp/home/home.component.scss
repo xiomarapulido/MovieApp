@@ -1,0 +1,12 @@
+@import '@app/colors';
+@import '@app/mixins';
+
+.app-home {
+	&__title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: $white;
+	}
+      
+
+}

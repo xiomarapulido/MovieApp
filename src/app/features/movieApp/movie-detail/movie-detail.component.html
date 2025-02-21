@@ -1,0 +1,44 @@
+<div class="app-movie-detail container py-5">
+  <div class="d-flex justify-content-between mb-4">
+    <button class="btn btn-outline-light btn-lg shadow-sm bg-dark" (click)="goBack()">
+      <i class="fas fa-arrow-left"></i> Back
+    </button>
+  </div>
+
+  <div *ngIf="movie() as m; else loading" class="row">
+    <!-- Movie Poster -->
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-lg">
+        <img [src]="m.image.url" alt="{{ m.title }}" class="card-img-top rounded-3" />
+      </div>
+    </div>
+
+    <!-- Movie Details -->
+    <div class="col-md-8">
+      <div class="card shadow-lg p-4">
+        <h1 class="mb-3 display-4">{{ m.title }}</h1>
+        <p class="lead">
+          <strong>Genres:</strong> {{ m.genres.join(', ') }}
+        </p>
+        <p class="lead">
+          <strong>Runtime:</strong> {{ m.runtime }}
+        </p>
+        <p class="lead">
+          <strong>Released:</strong> {{ m.released }}
+        </p>
+        <p class="lead">
+          <strong>Popularity:</strong> {{ m.popularity | number: '1.2-2' }}
+        </p>
+        <p class="lead">
+          <strong>Budget:</strong> {{ m.budget | currency:'EUR' }} <!-- Usar el pipe de moneda -->
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <div class="alert alert-warning text-center" role="alert">
+      <i class="fas fa-exclamation-triangle"></i> Movie not found or an error occurred. Please try again later.
+    </div>
+  </ng-template>
+</div>
