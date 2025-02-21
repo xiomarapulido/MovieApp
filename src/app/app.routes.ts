@@ -7,6 +7,11 @@ export const routes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home',
         loadComponent: () => import('./features/movieApp/home/home.component').then(m => m.HomeComponent)
       },
       {
@@ -15,5 +20,5 @@ export const routes: Routes = [
       }
     ]
   },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
