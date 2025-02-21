@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MovieService } from '../../../core/services/movie.service';
 import { Movie } from '../../../shared/models/movie.model';
 import { CardMovieComponent } from '../card-movie/card-movie.component';
+import { homeRoute } from '../../../shared/const/generalConst';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ import { CardMovieComponent } from '../card-movie/card-movie.component';
 })
 export class HomeComponent {
   movieData = signal<Movie[]>([]);
+  originRoute = homeRoute;
 
   constructor(private movieService: MovieService) {
     this.loadPopularMovies();
