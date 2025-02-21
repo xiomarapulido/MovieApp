@@ -8,6 +8,7 @@ import { debounceTime, distinctUntilChanged, of, Subject, switchMap } from 'rxjs
 import { PaginatorComponent } from '../paginator/paginator.component';
 import { SearcherComponent } from '../searcher/searcher.component';
 import { FilterComponent } from '../filter/filter.component';
+import { moviesRoute } from '../../../shared/const/generalConst';
 
 @Component({
   selector: 'app-movies-list',
@@ -33,6 +34,8 @@ export class MoviesListComponent {
   availableGenres = signal<string[]>([]);
   selectedGenres = signal<string[]>([]);
   private searchSubject = new Subject<string>();
+
+  originRoute = moviesRoute;
 
   constructor(private movieService: MovieService, private router: Router) {
     this.loadMovies(); // Fetch movies when the component initializes

@@ -1,7 +1,10 @@
-<div id="{{ movie.id }}" class="app-card card h-100 d-flex flex-column">
-  <img [src]="movie.image.url" class="card-img-top app-card__img" alt="{{ movie.title }}" (error)="onImageError($event)">
-  <div class="card-body d-flex flex-column">
-    <h5 class="card-title app-card__title">{{ movie.title }}</h5>
-    <p class="card-text flex-grow-1">Popularity: {{ movie.popularity }}</p>
+<div class="app-card" (click)="onCardClick()">
+  <div id="{{ movie.id }}" class="card h-100 d-flex flex-column">
+    <img [src]="movie.image.url" class="card-img-top app-card__img" alt="{{ movie.title }}"
+      (error)="onImageError($event)">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title app-card__title">{{ movie.title }}</h5>
+      <p class="card-text flex-grow-1">Popularity: {{ movie.popularity }}</p>
+    </div>
   </div>
 </div>

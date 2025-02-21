@@ -17,6 +17,14 @@ export const routes: Routes = [
       {
         path: 'movies',
         loadComponent: () => import('./features/movieApp/movies-list/movies-list.component').then(m => m.MoviesListComponent)
+      },
+      {
+        path: 'home/:slug',
+        loadComponent: () => import('./features/movieApp/movie-detail/movie-detail.component').then(m => m.MovieDetailComponent)
+      },
+      {
+        path: 'movies/:slug',
+        loadComponent: () => import('./features/movieApp/movie-detail/movie-detail.component').then(m => m.MovieDetailComponent)
       }
     ]
   },

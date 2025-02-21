@@ -1,30 +1,37 @@
 <div class="app-movies-list col-12">
   <h1 class="app-movies-list__title text-center mb-5">List of Movies</h1>
+
   <div class="wrap-filters row">
     <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-4 offset-md-1 offset-lg-1">
       <app-filter [availableOptions]="availableGenres()" [selectedOptionData]="selectedGenres()"
-      (dataChange)="onGenreChange($event)">
-    </app-filter>
+        (dataChange)="onGenreChange($event)">
+      </app-filter>
     </div>
     <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-4">
       <app-searcher [searchTerm]="searchTerm()" (searchChange)="onSearch($event)"></app-searcher>
     </div>
   </div>
- 
-  
-  <app-paginator [currentPage]="currentPage()" [totalPages]="totalPages" (pageChange)="onPageChange($event)">
-  </app-paginator>
 
-  <div class="col-12">
+  <ng-template #noResults>
+    <div class="alert alert-warning text-center">
+      <strong>No results found</strong>
+    </div>
+  </ng-template>
+
+  <ng-template [ngIf]="paginatedMovies.length > 0">
+    <app-paginator [currentPage]="currentPage()" [totalPages]="totalPages" (pageChange)="onPageChange($event)">
+    </app-paginator>
+  </ng-template>
+
+  <div *ngIf="paginatedMovies.length > 0; else noResults" class="col-12">
     <div class="row">
       <div class="col-10 offset-1">
         <div class="row">
           <div class="col-12 col-xs-12 col-sm-12 col-md-2 col-lg-2 mb-3" *ngFor="let m of paginatedMovies">
-            <app-card-movie [movie]="m"></app-card-movie>
+            <app-card-movie [movie]="m" [originRoute]="originRoute"></app-card-movie>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>

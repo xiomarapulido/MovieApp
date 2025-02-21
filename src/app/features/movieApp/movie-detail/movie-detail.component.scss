@@ -1,0 +1,60 @@
+@import '@app/colors';
+.app-movie-detail {
+  background-color: $light;
+
+  h1{
+    color: $red;
+  }
+
+  .card {
+    background-color: $white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-img-top {
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    height: 300px;
+  }
+
+  .display-4 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: -0.05rem;
+  }
+
+  .btn-outline-light {
+    border: 2px solid $gray;
+    color: $white;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .btn-outline-light:hover {
+    background-color: $red;
+    color: $light;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: $black;
+  }
+
+  .alert-warning {
+    background-color: $gray;
+    color: $red;
+    font-weight: bold;
+  }
+
+  .mb-4 {
+    margin-bottom: 2rem;
+  }
+
+  .mb-3 {
+    margin-bottom: 1.5rem;
+  }
+
+  .shadow-lg {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+}
