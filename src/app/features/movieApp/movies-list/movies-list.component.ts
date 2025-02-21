@@ -113,6 +113,10 @@ export class MoviesListComponent {
 
   onSearch(searchTerm: string): void {
     this.searchSubject.next(searchTerm);
+    this.router.navigate([], {
+      queryParams: { search: searchTerm || null }, 
+      queryParamsHandling: 'merge'
+    });
   }
 
 
@@ -135,7 +139,7 @@ export class MoviesListComponent {
 
     // Update the URL with the selected genres as query parameters
     this.router.navigate([], {
-      queryParams: { genres: selectedGenres.join(',') },
+      queryParams: { genres: selectedGenres.join(',') || null},
       queryParamsHandling: 'merge'
     });
 
