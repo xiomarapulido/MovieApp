@@ -26,5 +26,11 @@ export class MovieService {
   getAll$(): Observable<Movie[]> {
 		return this.http.get<Movie[]>(this.dataURL);
 	}
+
+  getMovieBySlug$(slug: string): Observable<Movie | undefined> {
+    return this.http.get<Movie[]>(this.dataURL).pipe(
+      map((movies: Movie[]) => movies.find(movie => movie.slug === slug))
+    );
+  }
   
 }
