@@ -1,11 +1,10 @@
 @import '@app/colors';
 .app-filter {
-    
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 220px;
- 
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  
   .custom-multi-select {
     position: relative;
     width: 100%;
@@ -14,7 +13,7 @@
   select.form-select {
     background-color: $black;
     color: $white;
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
@@ -24,7 +23,7 @@
   option {
     background-color: $gray;
     color: $white;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     margin-bottom: 5px;
   }
@@ -42,8 +41,6 @@
   .btn-danger {
     background-color: $red;
     border: none;
-    border-radius: 25px;
-    padding: 8px 20px;
     transition: background-color 0.3s ease;
   }
   

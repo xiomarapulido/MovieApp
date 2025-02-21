@@ -1,5 +1,9 @@
-<div class="app-filter">
-  <label class="form-label text-light">Filter Options</label>
+<div class="app-filter mb-3">
+  <div class="d-flex justify-content-start align-items-center">
+    <label class="form-label text-light">Filter by genre</label>
+    <button class="btn btn-danger ms-3" (click)="clearSelection()">X</button>
+  </div>
+
   <div class="custom-multi-select">
     <select class="form-select" multiple>
       <option 
@@ -10,6 +14,4 @@
       </option>
     </select>
   </div>
-
-  <button class="btn btn-danger mt-2" (click)="clearSelection()">Clear Selection</button>
 </div>
